@@ -1,6 +1,8 @@
 ---
-import { portfolio, projects, news, education, experience, publications, awards } from '../data/portfolio';
+import { portfolio, projects, news, education, experience, research, publications, awards, qualifications } from '../data/portfolio';
 import HistorySection from '../components/HistorySection.astro';
+import ResearchSection from '../components/ResearchSection.astro';
+import PublicationsSection from '../components/PublicationsSection.astro';
 import '../styles/global.css';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const asset = (path: string) => `${base}/${path.replace(/^\//, '')}`;
@@ -28,9 +30,10 @@ const canonical = new URL(`${base}/`, Astro.site);
       <nav class="navigation" aria-label="メインナビゲーション">
         <a href="#about">自己紹介</a>
         {education.length > 0 && <a href="#education">経歴</a>}
+        {research.length > 0 && <a href="#research">研究</a>}
         {projects.length > 0 && <a href="#projects">制作物</a>}
-        {publications.length > 0 && <a href="#publications">論文・発表</a>}
-        {awards.length > 0 && <a href="#awards">受賞歴</a>}
+        {publications.length > 0 && <a href="#publications">論文歴</a>}
+        {(awards.length > 0 || qualifications.length > 0) && <a href="#awards">受賞・資格</a>}
         <a href="#contact">連絡先</a>
         {portfolio.cvPath && <a href={asset(portfolio.cvPath)}>CV (PDF)</a>}
       </nav>
@@ -58,32 +61,44 @@ const canonical = new URL(`${base}/`, Astro.site);
         </section>
         <HistorySection id="news" title="お知らせ" entries={news} />
         <HistorySection id="education" title="学歴" entries={education} />
-        <HistorySection id="experience" title="職務経験・活動" entries={experience} />
+        <HistorySection id="experience" title="職務経験" entries={experience} />
+        <ResearchSection />
         {projects.length > 0 && <section id="projects" aria-labelledby="projects-title">
           <h2 id="projects-title">制作物・プロジェクト</h2>
           <div class="projects">
             {projects.map(project => (
-              <article class:list={['project', { 'has-image': project.image }]}>
+              <article id={project.id} class:list={['project', { 'has-image': project.image }]}>
                 {project.image && <img class="project-image" src={asset(project.image)} alt={project.imageAlt ?? project.title} loading="lazy" width="800" height="500" />}
                 <div class="project-content">
+                  <div class="project-meta">
+                    {project.date && <span>{project.date}</span>}
+                    <span>{project.category}</span>
+                    {project.result && <strong>{project.result}</strong>}
+                  </div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
                   <dl class="project-details">
-                    <div><dt>担当</dt><dd>{project.role}</dd></div>
-                    <div><dt>工夫した点</dt><dd>{project.highlight}</dd></div>
-                    <div><dt>使用技術</dt><dd>{project.technologies.join(' / ')}</dd></div>
+                    {project.role && <div><dt>担当</dt><dd>{project.role}</dd></div>}
+                    {project.highlight && <div><dt>工夫した点</dt><dd>{project.highlight}</dd></div>}
+                    {project.technologies.length > 0 && <div><dt>使用技術</dt><dd>{project.technologies.join(' / ')}</dd></div>}
                   </dl>
-                  {(project.demoUrl || project.sourceUrl) && <div class="project-links">
+                  {(project.demoUrl || project.sourceUrl || project.competitionUrl || project.eventUrl) && <div class="project-links">
                     {project.demoUrl && <a href={project.demoUrl}>デモを見る ↗</a>}
-                    {project.sourceUrl && <a href={project.sourceUrl}>GitHub ↗</a>}
+                    {project.sourceUrl && <a href={project.sourceUrl}>GitHub{project.sourcePrivate && '（現在は非公開）'} ↗</a>}
+                    {project.competitionUrl && <a href={project.competitionUrl}>大会公式サイト ↗</a>}
+                    {project.eventUrl && <a href={project.eventUrl}>学園祭イベント一覧（サークル公式） ↗</a>}
                   </div>}
                 </div>
               </article>
             ))}
           </div>
         </section>}
-        <HistorySection id="publications" title="論文・発表" entries={publications} />
-        <HistorySection id="awards" title="受賞歴" entries={awards} />
+        <PublicationsSection />
+        {(awards.length > 0 || qualifications.length > 0) && <section id="awards" aria-labelledby="awards-title">
+          <h2 id="awards-title">受賞・資格</h2>
+          <HistorySection id="award-list" title="受賞" entries={awards} headingLevel="h3" />
+          <HistorySection id="qualifications" title="資格・語学" entries={qualifications} headingLevel="h3" />
+        </section>}
         {portfolio.skills.length > 0 && <section id="skills" aria-labelledby="skills-title">
           <h2 id="skills-title">スキル・使用技術</h2>
           <dl class="skills">{portfolio.skills.map(group => <div><dt>{group.label}</dt><dd>{group.items.join(' / ')}</dd></div>)}</dl>

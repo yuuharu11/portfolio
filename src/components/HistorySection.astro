@@ -4,19 +4,22 @@ interface Props {
   id: string;
   title: string;
   entries: HistoryEntry[];
+  headingLevel?: 'h2' | 'h3';
 }
-const { id, title, entries } = Astro.props;
+const { id, title, entries, headingLevel = 'h2' } = Astro.props;
+const Heading = headingLevel;
 ---
 
 {entries.length > 0 && <section id={id} aria-labelledby={`${id}-title`}>
-  <h2 id={`${id}-title`}>{title}</h2>
+  <Heading id={`${id}-title`}>{title}</Heading>
   <ul class="history-list">
     {entries.map(entry => <li>
       <span class="date">{entry.date}</span>
       <div>
         <span class="entry-title">{entry.title}</span>
+        {entry.topic && <p class="entry-description"><strong>{entry.topic}</strong></p>}
         {entry.description && <p class="entry-description">{entry.description}</p>}
-        {entry.url && <a class="entry-link" href={entry.url}>詳細 ↗</a>}
+        {entry.url && <a class="entry-link" href={entry.url}>{entry.linkLabel ?? '詳細'} {entry.url.startsWith('#') ? '↓' : '↗'}</a>}
       </div>
     </li>)}
   </ul>

@@ -26,7 +26,15 @@ npm run dev
 
 制作物の画像は `public/images/` に置き、該当する制作物に `image: 'images/my-app.webp'` と `imageAlt: 'アプリの画面'` を追加します。未設定なら文章のみの一覧になります。`demoUrl` と `sourceUrl` を設定するとリンクが表示されます。
 
-お知らせ・学歴・職務経験・論文・受賞歴は、それぞれ `news`・`education`・`experience`・`publications`・`awards` に追加します。各項目は `date`・`title` と、任意の `description`・`url` を持ちます。配列が空 (`[]`) のセクションは表示されません。制作物やスキルも空の配列で非表示にできます。
+お知らせ・学歴・職務経験・受賞歴は、それぞれ `news`・`education`・`experience`・`awards` に追加します。各項目は `date`・`title` と、任意の `description`・`url` を持ちます。配列が空 (`[]`) のセクションは表示されません。制作物やスキルも空の配列で非表示にできます。
+
+資格・語学スコアは `qualifications` に追加します。受賞と同じ「受賞・資格」欄の中で、小見出しを分けて表示します。資格は合格・取得年月、語学スコアは試験名・スコア・受験年月を記載してください。
+
+研究紹介は `research` に追加します。`repositoryUrl` にリポジトリのURLを設定するとリンクが表示されます。非公開リポジトリは `repositoryPrivate: true` を設定します。画像は制作物と同様に `image`・`imageAlt` で設定できます。`conference` の `name`・`status`・`url` で学会名・発表／投稿状況・公式リンクを設定します。
+
+発表・論文は `publications` に著者一覧・学会名・日付・主著／共著・発表状況・論文URLを記載します。本人の著者名は太字になります。著者や日付が未確定の場合は省略できます。査読の有無は任意の `review`、短い論文概要は `summary` に記載できます。
+
+論文歴は `category` の「国際学会」「国内学会」で分けて表示します。投稿済み・採択待ちの論文は `status` にその状況を記載します。`repositoryUrl` と `repositoryPrivate` でGitHubリンクと非公開表記を設定できます。
 
 ## 確認する
 

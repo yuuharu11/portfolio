@@ -45,6 +45,26 @@ h3 { font-size: 1.12rem; margin: 0 0 12px; border-left: 3px solid var(--accent);
 .entry-link { display: inline-block; margin-top: 5px; font-size: .9rem; }
 
 .projects { display: grid; gap: 26px; }
+.project-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-bottom: 12px; font-size: .8rem; color: var(--muted); }
+.project-meta strong { padding: 2px 9px; border-radius: 3px; background: #e9f1f6; color: var(--accent); }
+.research-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.research-card { border: 1px solid var(--line); border-radius: 5px; background: white; overflow: hidden; }
+.research-card img { width: 100%; height: auto; }
+.research-body { padding: 24px; }
+.research-body h3 { border-left: 0; padding-left: 0; }
+.research-body p { font-size: .93rem; }
+.research-conference { border-top: 1px solid var(--line); padding-top: 14px; color: var(--muted); }
+.research-conference span { font-weight: 600; }
+.research-links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .86rem; }
+.publication { display: grid; grid-template-columns: 135px minmax(0, 1fr); gap: 25px; margin-bottom: 26px; }
+.publication + .publication { border-top: 1px solid var(--line); padding-top: 24px; }
+.publication-date { color: var(--muted); font-weight: 600; }
+.publication-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.publication-tags span { padding: 2px 9px; border: 1px solid var(--line); border-radius: 3px; font-size: .75rem; color: #45596b; }
+.publication h4 { color: var(--heading); font-size: 1.12rem; line-height: 1.5; margin: 0 0 12px; overflow-wrap: anywhere; }
+.publication-group + .publication-group { margin-top: 32px; }
+.publication-authors, .publication-venue { font-size: .9rem; color: #555; margin-bottom: 8px; }
+.publication-summary { font-size: .93rem; margin: 14px 0 0; }
 .project + .project { border-top: 1px solid var(--line); padding-top: 26px; }
 .project.has-image { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px; }
 .project-image { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
@@ -72,6 +92,9 @@ h3 { font-size: 1.12rem; margin: 0 0 12px; border-left: 3px solid var(--accent);
   .profile-image, .profile-placeholder { width: 120px; height: 120px; }
   .affiliation { font-size: .95rem; }
   .history-list li { grid-template-columns: 1fr; gap: 4px; }
+  .research-grid, .publication { grid-template-columns: 1fr; }
+  .publication { gap: 8px; }
+  .research-body { padding: 20px; }
   .project.has-image { grid-template-columns: 1fr; gap: 16px; }
   .project-image { max-width: 360px; }
   .skills div { grid-template-columns: 110px minmax(0, 1fr); }

@@ -1,0 +1,34 @@
+---
+import { publications, portfolio } from '../data/portfolio';
+const categories = ['国際学会', '国内学会'] as const;
+---
+
+{publications.length > 0 && <section id="publications" aria-labelledby="publications-title">
+  <h2 id="publications-title">論文歴</h2>
+  {categories.map(category => {
+    const papers = publications.filter(paper => paper.category === category);
+    return papers.length > 0 && <div class="publication-group">
+      <h3>{category}</h3>
+      <div class="publication-list">
+    {papers.map(paper => <article id={paper.id} class="publication">
+      <div class="publication-date">{paper.date}</div>
+      <div>
+        <div class="publication-tags" aria-label="論文の状況">
+          <span>{paper.status}</span>
+          {paper.review && <span>{paper.review}</span>}
+          {paper.role && <span>{paper.role}</span>}
+        </div>
+        <h4>{paper.title}</h4>
+        {paper.authors && <p class="publication-authors">
+          {paper.authors.map((name, index) => <>{index > 0 && ', '}{name === portfolio.englishName || name === portfolio.name ? <strong>{name}</strong> : name}</>)}
+        </p>}
+        <p class="publication-venue"><em>{paper.venueUrl ? <a href={paper.venueUrl}>{paper.venue}</a> : paper.venue}</em>{paper.paperId && <span>, Paper ID: {paper.paperId}</span>}</p>
+        {paper.summary && <p class="publication-summary"><strong>概要：</strong>{paper.summary}</p>}
+        {paper.url && <a href={paper.url}>論文・発表資料 ↗</a>}
+        {paper.repositoryUrl && <a class="entry-link" href={paper.repositoryUrl}>GitHub{paper.repositoryPrivate && '（現在は非公開）'} ↗</a>}
+      </div>
+    </article>)}
+      </div>
+    </div>;
+  })}
+</section>}
