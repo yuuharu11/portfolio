@@ -1,0 +1,23 @@
+---
+import type { HistoryEntry } from '../data/portfolio';
+interface Props {
+  id: string;
+  title: string;
+  entries: HistoryEntry[];
+}
+const { id, title, entries } = Astro.props;
+---
+
+{entries.length > 0 && <section id={id} aria-labelledby={`${id}-title`}>
+  <h2 id={`${id}-title`}>{title}</h2>
+  <ul class="history-list">
+    {entries.map(entry => <li>
+      <span class="date">{entry.date}</span>
+      <div>
+        <span class="entry-title">{entry.title}</span>
+        {entry.description && <p class="entry-description">{entry.description}</p>}
+        {entry.url && <a class="entry-link" href={entry.url}>詳細 ↗</a>}
+      </div>
+    </li>)}
+  </ul>
+</section>}

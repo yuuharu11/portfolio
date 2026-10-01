@@ -1,0 +1,102 @@
+---
+import { portfolio, projects, news, education, experience, publications, awards } from '../data/portfolio';
+import HistorySection from '../components/HistorySection.astro';
+import '../styles/global.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (path: string) => `${base}/${path.replace(/^\//, '')}`;
+const pageTitle = `${portfolio.name} | Portfolio`;
+const canonical = new URL(`${base}/`, Astro.site);
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={portfolio.introduction} />
+    <meta name="theme-color" content="#fcfcfc" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={portfolio.introduction} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content={canonical.href} />
+    <link rel="canonical" href={canonical} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+    <div class="wrap">
+      <nav class="navigation" aria-label="メインナビゲーション">
+        <a href="#about">自己紹介</a>
+        {education.length > 0 && <a href="#education">経歴</a>}
+        {projects.length > 0 && <a href="#projects">制作物</a>}
+        {publications.length > 0 && <a href="#publications">論文・発表</a>}
+        {awards.length > 0 && <a href="#awards">受賞歴</a>}
+        <a href="#contact">連絡先</a>
+        {portfolio.cvPath && <a href={asset(portfolio.cvPath)}>CV (PDF)</a>}
+      </nav>
+      <header class="profile-header">
+        {portfolio.profileImage ? (
+          <img class="profile-image" src={asset(portfolio.profileImage)} alt={`${portfolio.name}のプロフィール写真`} width="150" height="150" />
+        ) : (
+          <div class="profile-placeholder" aria-hidden="true">{portfolio.name.slice(0, 1).toUpperCase()}</div>
+        )}
+        <h1>{portfolio.name}{portfolio.englishName && <span class="english-name"> ({portfolio.englishName})</span>}</h1>
+        <p class="affiliation">{portfolio.affiliation.map(line => <span>{line}</span>)}</p>
+        <div class="social-links">
+          <a href={portfolio.githubUrl}>GitHub</a>
+          {portfolio.email && <a href={`mailto:${portfolio.email}`}>Email</a>}
+          {portfolio.cvPath && <a href={asset(portfolio.cvPath)}>CV (PDF)</a>}
+        </div>
+      </header>
+      <main id="main">
+        <section id="about" aria-labelledby="about-title">
+          <h2 id="about-title">自己紹介</h2>
+          <p>{portfolio.introduction}</p>
+          {portfolio.about.map(text => <p>{text}</p>)}
+          {portfolio.interests.length > 0 && <p><strong>興味・専門分野：</strong>{portfolio.interests.join('、')}</p>}
+          {portfolio.cvPath && <a class="cv-link" href={asset(portfolio.cvPath)}>CV (PDF) を表示</a>}
+        </section>
+        <HistorySection id="news" title="お知らせ" entries={news} />
+        <HistorySection id="education" title="学歴" entries={education} />
+        <HistorySection id="experience" title="職務経験・活動" entries={experience} />
+        {projects.length > 0 && <section id="projects" aria-labelledby="projects-title">
+          <h2 id="projects-title">制作物・プロジェクト</h2>
+          <div class="projects">
+            {projects.map(project => (
+              <article class:list={['project', { 'has-image': project.image }]}>
+                {project.image && <img class="project-image" src={asset(project.image)} alt={project.imageAlt ?? project.title} loading="lazy" width="800" height="500" />}
+                <div class="project-content">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <dl class="project-details">
+                    <div><dt>担当</dt><dd>{project.role}</dd></div>
+                    <div><dt>工夫した点</dt><dd>{project.highlight}</dd></div>
+                    <div><dt>使用技術</dt><dd>{project.technologies.join(' / ')}</dd></div>
+                  </dl>
+                  {(project.demoUrl || project.sourceUrl) && <div class="project-links">
+                    {project.demoUrl && <a href={project.demoUrl}>デモを見る ↗</a>}
+                    {project.sourceUrl && <a href={project.sourceUrl}>GitHub ↗</a>}
+                  </div>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>}
+        <HistorySection id="publications" title="論文・発表" entries={publications} />
+        <HistorySection id="awards" title="受賞歴" entries={awards} />
+        {portfolio.skills.length > 0 && <section id="skills" aria-labelledby="skills-title">
+          <h2 id="skills-title">スキル・使用技術</h2>
+          <dl class="skills">{portfolio.skills.map(group => <div><dt>{group.label}</dt><dd>{group.items.join(' / ')}</dd></div>)}</dl>
+        </section>}
+        <section id="contact" aria-labelledby="contact-title">
+          <h2 id="contact-title">連絡先</h2>
+          <ul class="contact-list">
+            <li><span>GitHub</span><a href={portfolio.githubUrl}>{portfolio.githubUrl.replace('https://', '')}</a></li>
+            {portfolio.email && <li><span>Email</span><a href={`mailto:${portfolio.email}`}>{portfolio.email}</a></li>}
+          </ul>
+        </section>
+      </main>
+      <footer class="site-footer"><span>© {new Date().getFullYear()} {portfolio.name}</span><a href="#main">ページ上部へ ↑</a></footer>
+    </div>
+  </body>
+</html>
