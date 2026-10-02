@@ -29,7 +29,7 @@ export const portfolio = {
   introduction: 'Physical AIの推論高速化に向けた、ソフトウェア・ハードウェア協調設計の研究に取り組んでいます。',
   about: [
     'ソフトウェアとハードウェアの両面からAI推論の効率化を検討し、高速化に向けた新しい手法を提案することを目指しています。',
-    'エンターテインメントにも関心があり、アニメーション研究会に所属しています。',
+    '趣味はアニメ鑑賞と旅行です。旅先では聖地巡礼やスキーを楽しんでいます。',
   ],
   githubUrl: 'https://github.com/yuuharu11',
   // 公開してよいメールアドレスを設定すると、メールリンクが表示されます。
@@ -61,7 +61,7 @@ export const projects: Project[] = [
   {
     id: 'airobo-project',
     title: '人工知能応用プロジェクト：動的な物体把持のためのVLA制御',
-    category: '授業プロジェクト・チーム開発',
+    category: 'プロジェクト・チーム開発',
     date: '2026.06',
     description: '授業の人工知能応用プロジェクトで、ベルトコンベア上を動く物体をロボットアームで掴み、箱へ移すシステムをチーム開発しました。SO-101の実機操作とデータ収集、VLAモデルの追加学習、MuJoCo上での動作検証を行う環境を整備しました。',
     highlight: '実機と同じロボットアーム、コンベア、物体、箱を配置したシミュレーション環境を構築しました。LeRobotを用いて操作データの記録から学習・評価までをつなぎ、物体が動く状況に対応するための行動の再計画も検討しました。',
@@ -71,31 +71,33 @@ export const projects: Project[] = [
   {
     id: 'pinball',
     title: 'Pinball：ステージクリア型ピンボールゲーム',
-    category: 'ゲーム開発・チーム開発',
-    description: 'Windows XPのピンボールを意識し、UnityとC#で友人2人と共同開発しました。左右のタップでフリッパーを操作し、ボールをゴールへ導くゲームです。全40ステージの攻略と、3個のボールで到達ステージ数を競うスコアモードを楽しめます。',
+    category: 'プロジェクト・チーム開発',
+    date: '2024',
+    description: 'Windows XPのピンボールを意識し、友人2人と共同開発しました。左右のタップでフリッパーを操作し、ボールをゴールへ導くゲームです。全40ステージの攻略と、3個のボールで到達ステージ数を競うスコアモードを楽しめます。',
     highlight: '風車・バンパー・ワープなどのギミックを組み合わせ、ボールの動きや攻略方法を楽しめるステージ作りを意識しました。左右のタップだけで直感的に操作でき、初めてでも遊びやすいゲームを目指しました。',
-    technologies: ['Unity', 'C#', '2D Physics', 'WebGL'],
+    technologies: ['Unity', 'C#'],
     sourceUrl: 'https://github.com/ssaGameTeam/Pinball/tree/develop',
     sourcePrivate: true,
   },
   {
     id: 'ssa-festival',
-    title: 'アニメーション研究会 学園祭イベントの技術サポート',
-    category: 'イベント運営・ツール制作',
+    title: '東京大学アニメーション研究会：学園祭企画',
+    category: 'プロジェクト',
     date: '2023 − 現在',
-    description: '五月祭・駒場祭で声優を招くイベントの運営に参加しています。',
-    role: 'PAとして音響・スライド投影などの技術サポートを担当。イベント公式サイトや抽選・メール自動送信ツールの制作にも参加',
-    technologies: [],
+    description: '声優やアニメ関係者を招く学園祭企画に、PA・Web担当として参加。音響やスライド投影、公式サイトの制作など、技術面の運営を担当しました。',
+    highlight: '脚本担当や司会者など、役割を超えた密な連携を心がけ、演出意図に合わせた音響・スライドの運用を通じて、演出の質を高めました。',
+    technologies: ['HTML', 'CSS', 'Google Apps Script（GAS）'],
     eventUrl: 'https://ssa.sakura.ne.jp/festival/hista.html',
   },
   {
     id: 'ssa-bulletin',
-    title: 'アニメーション研究会 会報の編集・制作',
-    category: '会報制作',
+    title: '東京大学アニメーション研究会：会報の編集・制作',
+    category: '制作物',
     date: '2023',
-    description: '東京大学アニメーション研究会の編集担当として、コミックマーケットでの頒布に向けた会報を制作しました。',
+    description: '編集担当として、コミックマーケットでの頒布に向けた会報を制作しました。',
     role: '記事の募集・取りまとめ、誌面構成、校正、レイアウト、入稿データの作成・入稿まで、編集・制作全体を担当',
-    technologies: [],
+    highlight: '初めて見る人にも手に取ってもらえるよう、わかりやすい誌面構成や、目を引く表紙・コーナーづくりに取り組みました。',
+    technologies: ['Word', 'Canva'],
   },
 ];
 
@@ -131,18 +133,18 @@ export const education: HistoryEntry[] = [
 export const experience: HistoryEntry[] = [
   {
     date: '2026.08 − 2026.09',
-    title: '研究インターンシップ, NTT株式会社',
-    description: '夏期研究実習に参加',
+    title: '研究開発インターンシップ、NTT株式会社',
+    description: '映像AI推論ハードウェアにおける演算精度最適化',
   },
   {
     date: '2026.07 − 2026.08',
-    title: '研究インターンシップ, Fixstars',
-    description: '研究開発インターンに参加',
+    title: '開発インターン、株式会社フィックスターズ',
+    description: 'VLAモデルのハードウェアアクセラレータ向け開発',
   },
   {
     date: '2026.07 − 2026.08',
     title: 'ティーチングアシスタント, 東京大学',
-    description: '学部3年生向け実験 アナログ回路の指導補助を担当。',
+    description: '学部3年生向け実験 アナログ回路の指導補助を担当',
   },
 ];
 export interface Research {
@@ -161,15 +163,11 @@ export const research: Research[] = [
     title: 'Liquid Neural Networksの推論高速化とメモリセントリックコンピューティング',
     description: 'ロボットのリアルタイム制御に向けて、不揮発性メモリを中心としたLiquid Neural Networksの推論アクセラレータを提案しました。ロボットの模倣学習を用い、量子化やデバイス誤差が制御性能に与える影響を評価しました。',
     conference: { name: 'AICAS 2026', status: '発表済み', url: 'https://2026.ieee-aicas.org/' },
-    repositoryUrl: 'https://github.com/yuuharu11/hardware-aware-liquid-policies',
-    repositoryPrivate: true,
   },
   {
     title: 'VLAモデルによるロボット制御の頑健性向上',
     description: 'VLA（Vision-Language-Action）モデルを用いたロボット制御において、外乱や環境の変化に対応する手法を研究しています。査読中のため、手法の詳細は非公開です。',
     conference: { name: 'ICRA 2027', status: '投稿済み', url: 'https://2027.ieee-icra.org/' },
-    repositoryUrl: 'https://github.com/yuuharu11/NARC',
-    repositoryPrivate: true,
   },
 ];
 
@@ -232,7 +230,6 @@ export const awards: HistoryEntry[] = [
   {
     date: '2026.08',
     title: 'Physical AI Robot Challenge 2026（PARC 2026）予選突破',
-    description: 'VLAモデルの汎化能力向上を競うコンペティションで、モデルの追加学習・評価に取り組み、本選に進出。',
     url: '#parc2026',
     linkLabel: 'プロジェクト紹介',
   },
