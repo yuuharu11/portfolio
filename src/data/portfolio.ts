@@ -130,15 +130,14 @@ export const education: HistoryEntry[] = [
 ];
 export const experience: HistoryEntry[] = [
   {
-    date: '2026.09',
+    date: '2026.08 − 2026.09',
     title: '研究インターンシップ, NTT株式会社',
-    topic: '高精細映像AI推論ハードウェアにおける演算精度最適化',
-    description: '映像AIモデルに量子化を適用し、ビット幅・量子化方式や演算誤差が推論精度に与える影響を評価しました。誤差注入シミュレーションから許容される精度低下を定量的に見積もり、演算コストと推論精度を両立する設計指針を検討しました。',
+    description: '夏期研究実習に参加',
   },
   {
     date: '2026.07 − 2026.08',
     title: '研究インターンシップ, Fixstars',
-    description: '新興アクセラレータに向けたVLAの研究開発に従事。',
+    description: '研究開発インターンに参加',
   },
   {
     date: '2026.07 − 2026.08',
@@ -193,19 +192,6 @@ export interface Publication {
 }
 
 export const publications: Publication[] = [
-  {
-    id: 'icra-under-review',
-    category: '国際学会',
-    // 正式な論文タイトルではなく、査読中の紹介用表記です。
-    title: 'VLAモデルによるロボット制御の頑健性向上（論文タイトル非公開）',
-    authors: ['Yuya Yamamoto', 'Naoko Misawa', 'Chihiro Matsui', 'Ken Takeuchi'],
-    venue: 'IEEE International Conference on Robotics and Automation (ICRA 2027)',
-    venueUrl: 'https://2027.ieee-icra.org/',
-    status: '投稿済み・採択待ち',
-    summary: 'VLAモデルを用いたロボット制御の頑健性向上に関する研究。査読中のため、手法の詳細は非公開です。',
-    repositoryUrl: 'https://github.com/yuuharu11/NARC',
-    repositoryPrivate: true,
-  },
   {
     id: 'aicas-lnn',
     category: '国際学会',
