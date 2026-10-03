@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { portfolio, projects, news, education, experience, research, publications, awards, qualifications } from '../data/portfolio';
 import HistorySection from '../components/HistorySection.astro';
 import ResearchSection from '../components/ResearchSection.astro';
@@ -34,7 +35,6 @@ const canonical = new URL(`${base}/`, Astro.site);
         {projects.length > 0 && <a href="#projects">制作物</a>}
         {publications.length > 0 && <a href="#publications">論文歴</a>}
         {(awards.length > 0 || qualifications.length > 0) && <a href="#awards">受賞・資格</a>}
-        <a href="#contact">連絡先</a>
         {portfolio.cvPath && <a href={asset(portfolio.cvPath)}>CV (PDF)</a>}
       </nav>
       <header class="profile-header">
@@ -47,7 +47,7 @@ const canonical = new URL(`${base}/`, Astro.site);
         <p class="affiliation">{portfolio.affiliation.map(line => <span>{line}</span>)}</p>
         <div class="social-links">
           <a href={portfolio.githubUrl}>GitHub</a>
-          {portfolio.email && <a href={`mailto:${portfolio.email}`}>Email</a>}
+          {portfolio.email && <a href={`mailto:${portfolio.email}`} title="メールアプリで送信">Email</a>}
           {portfolio.cvPath && <a href={asset(portfolio.cvPath)}>CV (PDF)</a>}
         </div>
       </header>
@@ -82,8 +82,14 @@ const canonical = new URL(`${base}/`, Astro.site);
                     {project.highlight && <div><dt>工夫した点</dt><dd>{project.highlight}</dd></div>}
                     {project.technologies.length > 0 && <div><dt>使用技術</dt><dd>{project.technologies.join(' / ')}</dd></div>}
                   </dl>
+                  {project.images && <div class="project-gallery">
+                    {project.images.map(cover => <figure>
+                      <Image src={cover.src} alt={cover.alt} width={240} widths={[240, 480]} sizes="(max-width: 600px) 40vw, 240px" format="webp" loading="lazy" />
+                      <figcaption>{cover.caption}</figcaption>
+                    </figure>)}
+                  </div>}
                   {(project.demoUrl || project.sourceUrl || project.competitionUrl || project.eventUrl) && <div class="project-links">
-                    {project.demoUrl && <a href={project.demoUrl}>デモを見る ↗</a>}
+                    {project.demoUrl && <a href={project.demoUrl}>{project.demoLabel ?? 'デモを見る'} ↗</a>}
                     {project.sourceUrl && <a href={project.sourceUrl}>GitHub{project.sourcePrivate && '（現在は非公開）'} ↗</a>}
                     {project.competitionUrl && <a href={project.competitionUrl}>大会公式サイト ↗</a>}
                     {project.eventUrl && <a href={project.eventUrl}>学園祭イベント一覧（サークル公式） ↗</a>}
@@ -103,13 +109,6 @@ const canonical = new URL(`${base}/`, Astro.site);
           <h2 id="skills-title">スキル・使用技術</h2>
           <dl class="skills">{portfolio.skills.map(group => <div><dt>{group.label}</dt><dd>{group.items.join(' / ')}</dd></div>)}</dl>
         </section>}
-        <section id="contact" aria-labelledby="contact-title">
-          <h2 id="contact-title">連絡先</h2>
-          <ul class="contact-list">
-            <li><span>GitHub</span><a href={portfolio.githubUrl}>{portfolio.githubUrl.replace('https://', '')}</a></li>
-            {portfolio.email && <li><span>Email</span><a href={`mailto:${portfolio.email}`}>{portfolio.email}</a></li>}
-          </ul>
-        </section>
       </main>
       <footer class="site-footer"><span>© {new Date().getFullYear()} {portfolio.name}</span><a href="#main">ページ上部へ ↑</a></footer>
     </div>

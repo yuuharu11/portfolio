@@ -12,9 +12,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <h3>{item.title}</h3>
         <p>{item.description}</p>
         <p class="research-conference"><span>{item.conference.status}</span>：<a href={item.conference.url}>{item.conference.name} ↗</a></p>
-        <div class="research-links">
-          {item.repositoryUrl && <a href={item.repositoryUrl}>GitHub{item.repositoryPrivate && '（現在は非公開）'} ↗</a>}
-        </div>
+        {(item.researchPageUrl || item.researchPagePreparing) && <p class="research-links">
+          {item.researchPageUrl ? <a href={item.researchPageUrl}>研究ページ ↗</a> : <><strong>研究ページ</strong>：準備中</>}
+        </p>}
       </div>
     </article>)}
   </div>

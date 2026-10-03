@@ -17,9 +17,9 @@ const Heading = headingLevel;
       <span class="date">{entry.date}</span>
       <div>
         <span class="entry-title">{entry.title}</span>
-        {entry.topic && <p class="entry-description"><strong>{entry.topic}</strong></p>}
+        {entry.topic && <p class="entry-description">{entry.topic}</p>}
         {entry.description && <p class="entry-description">{entry.description}</p>}
-        {entry.url && <a class="entry-link" href={entry.url}>{entry.linkLabel ?? '詳細'} {entry.url.startsWith('#') ? '↓' : '↗'}</a>}
+        {entry.url && <a class="entry-link" href={entry.url}>{entry.linkLabel ?? '詳細'} {entry.url.startsWith('#') ? '↑' : '↗'}</a>}
       </div>
     </li>)}
   </ul>
