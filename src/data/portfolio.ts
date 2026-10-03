@@ -1,6 +1,6 @@
 import type { ImageMetadata } from 'astro';
-import c101Cover from '../../img/C101.jpg';
 import c102Cover from '../../img/C102.jpg';
+import c103Cover from '../../img/C103.jpg';
 
 export interface Project {
   id?: string;
@@ -100,8 +100,8 @@ export const projects: Project[] = [
     highlight: '初めて見る人にも手に取ってもらえるよう、わかりやすい誌面構成や、目を引く表紙・コーナーづくりに取り組みました。',
     technologies: ['Word', 'Canva'],
     images: [
-      { src: c101Cover, alt: '東京大学アニメーション研究会のC101会報の表紙', caption: 'C101 会報表紙' },
       { src: c102Cover, alt: '東京大学アニメーション研究会のC102会報の表紙', caption: 'C102 会報表紙' },
+      { src: c103Cover, alt: '東京大学アニメーション研究会のC103会報の表紙', caption: 'C103 会報表紙' },
     ],
   },
 ];
