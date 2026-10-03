@@ -78,10 +78,6 @@ h3 { font-size: 1.12rem; margin: 0 0 12px; border-left: 3px solid var(--accent);
 .project-gallery figure { margin: 0; text-align: center; }
 .project-gallery img { width: 100%; height: clamp(180px, 38vw, 340px); object-fit: contain; }
 .project-gallery figcaption { font-size: .85rem; color: var(--muted); margin-top: 10px; }
-.skills { margin: 0; }
-.skills div { display: grid; grid-template-columns: 165px minmax(0, 1fr); gap: 10px; padding-block: 7px; }
-.skills dt { font-weight: 600; color: var(--muted); }
-.skills dd { margin: 0; }
 .site-footer { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 22px; color: var(--muted); font-size: .8rem; }
 .skip-link { position: absolute; top: -100px; left: 20px; background: white; padding: 12px; z-index: 10; }
 .skip-link:focus { top: 10px; }
@@ -98,7 +94,6 @@ h3 { font-size: 1.12rem; margin: 0 0 12px; border-left: 3px solid var(--accent);
   .research-body { padding: 20px; }
   .project.has-image { grid-template-columns: 1fr; gap: 16px; }
   .project-image { max-width: 360px; }
-  .skills div { grid-template-columns: 110px minmax(0, 1fr); }
   .project-details div { grid-template-columns: 85px minmax(0, 1fr); gap: 8px; }
   h2 { font-size: 1.3rem; }
 }

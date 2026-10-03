@@ -105,10 +105,6 @@ const canonical = new URL(`${base}/`, Astro.site);
           <HistorySection id="award-list" title="受賞" entries={awards} headingLevel="h3" />
           <HistorySection id="qualifications" title="資格・語学" entries={qualifications} headingLevel="h3" />
         </section>}
-        {portfolio.skills.length > 0 && <section id="skills" aria-labelledby="skills-title">
-          <h2 id="skills-title">スキル・使用技術</h2>
-          <dl class="skills">{portfolio.skills.map(group => <div><dt>{group.label}</dt><dd>{group.items.join(' / ')}</dd></div>)}</dl>
-        </section>}
       </main>
       <footer class="site-footer"><span>© {new Date().getFullYear()} {portfolio.name}</span><a href="#main">ページ上部へ ↑</a></footer>
     </div>

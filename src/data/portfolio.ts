@@ -34,20 +34,13 @@ export const portfolio = {
   cvPath: '',
   introduction: 'Physical AIの推論高速化に向けた、ソフトウェア・ハードウェア協調設計に関する研究に取り組んでいます。',
   about: [
-    'エンターテインメントに関心があり、アニメーション研究会に所属しながら、アニメの魅力を伝える活動に取り組んでいます。',
-    '趣味はアニメ鑑賞と旅行です。旅先では聖地巡礼やスキーを楽しんでいます。',
+    'また、アニメやゲームを中心としたエンターテインメントに小さいころから親しんでおり、大学ではアニメーション研究会に所属し、アニメの魅力を伝えるため、会報制作や学園祭企画に取り組んできました。',
+    '旅行も好きで、アニメの舞台になった聖地を訪れたり、冬にはスキーを楽しんだりしています。',
   ],
   githubUrl: 'https://github.com/yuuharu11',
   // 公開してよいメールアドレスを設定すると、メールリンクが表示されます。
   email: 'yuya.yamamoto@co-design.t.u-tokyo.ac.jp',
   interests: ['Physical AI', 'AI Accelerator', 'Computation-in-Memory'],
-  skills: [
-    // 使用技術の一覧です。習熟度や担当範囲は、研究・制作物の説明で補足します。
-    { label: '言語', items: ['Python', 'C++', 'C', 'Verilog', 'JavaScript'] },
-    { label: '機械学習', items: ['PyTorch', 'TensorFlow', 'PyTorch Lightning'] },
-    { label: '数値計算', items: ['NumPy'] },
-    { label: 'ツール', items: ['Git', 'Docker', 'Jupyter Notebook', 'Weights & Biases', 'Google Apps Script'] },
-  ],
 };
 
 export const projects: Project[] = [
@@ -146,12 +139,12 @@ export const experience: HistoryEntry[] = [
   {
     date: '2026.08 − 2026.09',
     title: '研究開発インターンシップ, NTT株式会社',
-    topic: '高精細映像AI推論ハードウェアにおける演算精度最適化に従事',
+    topic: '高精細映像AI推論ハードウェアにおける演算精度最適化',
   },
   {
     date: '2026.07 − 2026.08',
     title: '研究開発インターンシップ, 株式会社フィックスターズ',
-    description: '新興アクセラレータに向けたVLAの研究開発に従事',
+    description: '新興アクセラレータに向けたVLAの研究開発',
   },
   {
     date: '2026.07 − 2026.08',

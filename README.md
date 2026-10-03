@@ -26,7 +26,7 @@ npm run dev
 
 制作物の画像は `public/images/` に置き、該当する制作物に `image: 'images/my-app.webp'` と `imageAlt: 'アプリの画面'` を追加します。未設定なら文章のみの一覧になります。`demoUrl` と `sourceUrl` を設定するとリンクが表示されます。
 
-お知らせ・学歴・職務経験・受賞歴は、それぞれ `news`・`education`・`experience`・`awards` に追加します。各項目は `date`・`title` と、任意の `description`・`url` を持ちます。配列が空 (`[]`) のセクションは表示されません。制作物やスキルも空の配列で非表示にできます。
+お知らせ・学歴・職務経験・受賞歴は、それぞれ `news`・`education`・`experience`・`awards` に追加します。各項目は `date`・`title` と、任意の `description`・`url` を持ちます。配列が空 (`[]`) のセクションは表示されません。制作物も空の配列で非表示にできます。
 
 資格・語学スコアは `qualifications` に追加します。受賞と同じ「受賞・資格」欄の中で、小見出しを分けて表示します。資格は合格・取得年月、語学スコアは試験名・スコア・受験年月を記載してください。
 
