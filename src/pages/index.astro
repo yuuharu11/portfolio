@@ -91,7 +91,7 @@ const canonical = new URL(`${base}/`, Astro.site);
                   {(project.demoUrl || project.sourceUrl || project.competitionUrl || project.eventUrl) && <div class="project-links">
                     {project.demoUrl && <a href={project.demoUrl}>{project.demoLabel ?? 'デモを見る'} ↗</a>}
                     {project.sourceUrl && <a href={project.sourceUrl}>GitHub{project.sourcePrivate && '（現在は非公開）'} ↗</a>}
-                    {project.competitionUrl && <a href={project.competitionUrl}>大会公式サイト ↗</a>}
+                    {project.competitionUrl && <a href={project.competitionUrl}>{project.competitionLabel ?? '大会公式サイト'} ↗</a>}
                     {project.eventUrl && <a href={project.eventUrl}>学園祭イベント一覧（サークル公式） ↗</a>}
                   </div>}
                 </div>

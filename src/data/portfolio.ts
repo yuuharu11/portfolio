@@ -21,6 +21,7 @@ export interface Project {
   sourceUrl?: string;
   sourcePrivate?: boolean;
   competitionUrl?: string;
+  competitionLabel?: string;
   eventUrl?: string;
 }
 
@@ -44,6 +45,17 @@ export const portfolio = {
 };
 
 export const projects: Project[] = [
+  {
+    id: 'sqex-hackathon',
+    title: '生成AIを組み込んだ新規ゲーム開発ハッカソン',
+    category: 'コンペティション・チーム',
+    date: '2026.11',
+    result: '技術賞受賞',
+    description: '株式会社スクウェア・エニックス主催のハッカソン（3日間、48名参加）に参加しました。3人1チームで、生成AIをゲーム性に組み込んだオリジナルゲームを開発し、技術賞を受賞しました。',
+    technologies: ['Python', 'JavaScript', 'HTML', 'CSS'],
+    competitionUrl: 'https://www.jp.square-enix.com/recruit/fresh/intern/2026/09/018407.html',
+    competitionLabel: 'イベント公式ページ',
+  },
   {
     id: 'parc2026',
     title: 'PARC 2026：Physical AI開発コンペティション',
@@ -234,6 +246,12 @@ export const publications: Publication[] = [
   },
 ];
 export const awards: HistoryEntry[] = [
+  {
+    date: '2026.11',
+    title: '生成AIを組み込んだ新規ゲーム開発ハッカソン 技術賞受賞',
+    url: '#sqex-hackathon',
+    linkLabel: 'プロジェクト紹介',
+  },
   {
     date: '2026.08',
     title: 'Physical AI Robot Challenge 2026 予選突破',
