@@ -149,6 +149,11 @@ export const education: HistoryEntry[] = [
 ];
 export const experience: HistoryEntry[] = [
   {
+    date: '2026.10 − 2026.11',
+    title: '研究開発インターンシップ, 富士通株式会社',
+    description: 'VLAのロバスト性・効率性・スケーラビリティおよび失敗回復に関する研究開発',
+  },
+  {
     date: '2026.08 − 2026.09',
     title: '研究開発インターンシップ, NTT株式会社',
     topic: '高精細映像AI推論ハードウェアにおける演算精度最適化',
@@ -203,6 +208,8 @@ export interface Publication {
   review?: string;
   paperId?: string;
   url?: string;
+  // url のリンク名。未設定なら「論文・発表資料」と表示されます。
+  urlLabel?: string;
   repositoryUrl?: string;
   repositoryPrivate?: boolean;
 }
@@ -219,6 +226,8 @@ export const publications: Publication[] = [
     role: '主著',
     status: '発表済み',
     paperId: '1571267829',
+    url: 'https://ieeexplore.ieee.org/document/11762084',
+    urlLabel: '論文（IEEE Xplore）',
     // hardware-aware-liquid-policies/README.md と docs/EXPERIMENTS.md に基づく概要案。
     summary: 'ロボットのリアルタイム制御に向けて、不揮発性メモリを中心としたLiquid Neural Networkの推論アクセラレータを提案しました。模倣学習によるロボット操作タスクを用い、演算ブロックごとの量子化やReRAMのデバイス誤差が制御性能に与える影響を評価し、ハードウェア制約下でのモデル規模と制御性能の関係を明らかにしました。',
   },
@@ -233,6 +242,8 @@ export const publications: Publication[] = [
     role: '共著',
     status: '発表済み',
     paperId: '1571264636',
+    url: 'https://ieeexplore.ieee.org/document/11761625',
+    urlLabel: '論文（IEEE Xplore）',
   },
   {
     id: 'design-gaia-lnn',

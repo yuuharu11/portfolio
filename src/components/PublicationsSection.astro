@@ -24,7 +24,7 @@ const categories = ['国際学会', '国内学会'] as const;
         </p>}
         <p class="publication-venue"><em>{paper.venueUrl ? <a href={paper.venueUrl}>{paper.venue}</a> : paper.venue}</em>{paper.paperId && <span>, Paper ID: {paper.paperId}</span>}</p>
         {paper.summary && <p class="publication-summary"><strong>概要：</strong>{paper.summary}</p>}
-        {paper.url && <a href={paper.url}>論文・発表資料 ↗</a>}
+        {paper.url && <a href={paper.url}>{paper.urlLabel ?? '論文・発表資料'} ↗</a>}
         {paper.repositoryUrl && <a class="entry-link" href={paper.repositoryUrl}>GitHub{paper.repositoryPrivate && '（現在は非公開）'} ↗</a>}
       </div>
     </article>)}
