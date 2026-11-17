@@ -149,6 +149,11 @@ export const education: HistoryEntry[] = [
 ];
 export const experience: HistoryEntry[] = [
   {
+    date: '2026.11 − 2027.01',
+    title: 'AI・ロボティクス インターンシップ, GMOインターネットグループ株式会社',
+    description: 'ヒューマノイドロボットを用いた技術検証・開発',
+  },
+  {
     date: '2026.10 − 2026.11',
     title: '研究開発インターンシップ, 富士通株式会社',
     description: 'VLAのロバスト性・効率性・スケーラビリティおよび失敗回復に関する研究開発',
